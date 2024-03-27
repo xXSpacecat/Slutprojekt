@@ -1,4 +1,4 @@
-abstract class Item {
+public abstract class Item {
     private Boolean repeatable;
 
     public Item() {
