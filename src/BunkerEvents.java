@@ -3,12 +3,12 @@ public class BunkerEvents extends Event{
     public BunkerEvents() {
     }
 
-    public Item trade(Item tradeItem){
+    public void trade(Item tradeItem){
 
     };
 
     public boolean breaking(Item breakable){
-
+return true;
     };
 
     public void story(){

@@ -4,12 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="38cc0af5-f4cb-4688-83a4-3bca46665494" name="Changes" comment="first commit">
-      <change afterPath="$PROJECT_DIR$/src/BunkerEvents.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Event.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ExpEvent.java" afterDir="false" />
+    <list default="true" id="38cc0af5-f4cb-4688-83a4-3bca46665494" name="Changes" comment="adding hopefully last classes">
+      <change afterPath="$PROJECT_DIR$/src/Names.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Item.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Bunker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Bunker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BunkerEvents.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BunkerEvents.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Character.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Character.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ExpEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ExpEvent.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,7 +67,12 @@
       <updated>1710142293930</updated>
       <workItem from="1710142294991" duration="2000" />
       <workItem from="1711352219480" duration="3714000" />
-      <workItem from="1711529810784" duration="2017000" />
+      <workItem from="1711529810784" duration="2876000" />
+      <workItem from="1712557951234" duration="1543000" />
+      <workItem from="1712559572317" duration="11000" />
+      <workItem from="1712559816325" duration="26000" />
+      <workItem from="1712559892663" duration="135000" />
+      <workItem from="1712560089331" duration="1698000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <option name="closed" value="true" />
@@ -76,7 +82,15 @@
       <option name="project" value="LOCAL" />
       <updated>1711355950148</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="adding hopefully last classes">
+      <option name="closed" value="true" />
+      <created>1711533127596</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1711533127596</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -84,6 +98,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="first commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="first commit" />
+    <MESSAGE value="adding hopefully last classes" />
+    <option name="LAST_COMMIT_MESSAGE" value="adding hopefully last classes" />
   </component>
 </project>

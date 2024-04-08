@@ -13,7 +13,11 @@ public class Character {
     public Character() {
     }
 
-    public Item goOnExp(Equipment inUse){
+    public Character(String name) {
+        this.name = name;
+    }
+
+    public void goOnExp(Equipment inUse){
 
     };
 
