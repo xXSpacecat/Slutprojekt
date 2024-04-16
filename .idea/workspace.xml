@@ -4,7 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="38cc0af5-f4cb-4688-83a4-3bca46665494" name="Changes" comment="Skapade en filhanterare för att namnge karaktärer lätt">
+    <list default="true" id="38cc0af5-f4cb-4688-83a4-3bca46665494" name="Changes" comment="försöker skapa sj'lvaste karaktärerna antalet funkar ej">
+      <change afterPath="$PROJECT_DIR$/src/Events.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Bunker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Bunker.java" afterDir="false" />
     </list>
@@ -69,7 +70,8 @@
       <workItem from="1712559816325" duration="26000" />
       <workItem from="1712559892663" duration="135000" />
       <workItem from="1712560089331" duration="2138000" />
-      <workItem from="1712735436774" duration="4197000" />
+      <workItem from="1712735436774" duration="4376000" />
+      <workItem from="1713248446070" duration="3230000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <option name="closed" value="true" />
@@ -95,7 +97,15 @@
       <option name="project" value="LOCAL" />
       <updated>1712562221450</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="försöker skapa sj'lvaste karaktärerna antalet funkar ej">
+      <option name="closed" value="true" />
+      <created>1712739825402</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1712739825402</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -105,6 +115,7 @@
     <MESSAGE value="first commit" />
     <MESSAGE value="adding hopefully last classes" />
     <MESSAGE value="Skapade en filhanterare för att namnge karaktärer lätt" />
-    <option name="LAST_COMMIT_MESSAGE" value="Skapade en filhanterare för att namnge karaktärer lätt" />
+    <MESSAGE value="försöker skapa sj'lvaste karaktärerna antalet funkar ej" />
+    <option name="LAST_COMMIT_MESSAGE" value="försöker skapa sj'lvaste karaktärerna antalet funkar ej" />
   </component>
 </project>
