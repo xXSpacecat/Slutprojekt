@@ -17,29 +17,50 @@ public class Character {
         this.name = name;
     }
 
-    public void goOnExp(Equipment inUse){
+    public void goOnExp(Equipment inUse) {
 
-    };
+    }
 
-    public void eat(){
+    ;
 
-    };
+    public void sleep() {
+        this.hunger++;
+        this.thirst++;
+        if (this.sick > 0) {
+            this.sick++;
+        }
+        if (this.crazy > 0) {
+            this.crazy++;
+        }
+        if (this.hurt > 0) {
+            this.hurt++;
+        }
+    }
 
-    public void drink(){
+    public void eat() {
 
-    };
+    }
 
-    public void heal(){
+    ;
 
-    };
+    public void drink() {
 
-    public void die(){
+    }
+
+    ;
+
+    public void heal() {
+
+    }
+
+    ;
+
+    public void die() {
 
 
-    };
+    }
 
-
-
+    ;
 
 
 }

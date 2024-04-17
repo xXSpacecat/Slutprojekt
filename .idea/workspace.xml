@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="38cc0af5-f4cb-4688-83a4-3bca46665494" name="Changes" comment="försöker skapa sj'lvaste karaktärerna antalet funkar ej">
-      <change afterPath="$PROJECT_DIR$/src/Events.txt" afterDir="false" />
+    <list default="true" id="38cc0af5-f4cb-4688-83a4-3bca46665494" name="Changes" comment="bygger på hur spelet ska runna. karaktärernas antal funkar ej">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Bunker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Bunker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Character.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Character.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,6 +20,9 @@
         <option value="Class" />
       </list>
     </option>
+  </component>
+  <component name="FormatOnSaveOptions">
+    <option name="myRunOnSave" value="true" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -46,6 +49,7 @@
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;actions.on.save&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -71,7 +75,8 @@
       <workItem from="1712559892663" duration="135000" />
       <workItem from="1712560089331" duration="2138000" />
       <workItem from="1712735436774" duration="4376000" />
-      <workItem from="1713248446070" duration="3230000" />
+      <workItem from="1713248446070" duration="3593000" />
+      <workItem from="1713340994915" duration="3720000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <option name="closed" value="true" />
@@ -105,17 +110,37 @@
       <option name="project" value="LOCAL" />
       <updated>1712739825402</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="bygger på hur spelet ska runna. karaktärernas antal funkar ej">
+      <option name="closed" value="true" />
+      <created>1713251970491</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1713251970491</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="first commit" />
     <MESSAGE value="adding hopefully last classes" />
     <MESSAGE value="Skapade en filhanterare för att namnge karaktärer lätt" />
     <MESSAGE value="försöker skapa sj'lvaste karaktärerna antalet funkar ej" />
-    <option name="LAST_COMMIT_MESSAGE" value="försöker skapa sj'lvaste karaktärerna antalet funkar ej" />
+    <MESSAGE value="bygger på hur spelet ska runna. karaktärernas antal funkar ej" />
+    <option name="LAST_COMMIT_MESSAGE" value="bygger på hur spelet ska runna. karaktärernas antal funkar ej" />
   </component>
 </project>
