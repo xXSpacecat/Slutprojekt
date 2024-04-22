@@ -30,9 +30,10 @@ public class Bunker {
         String EventFile = "src/Events.txt";
         readFromFile(EventFile);
         dayInfo();
-
+        maintenance();
         endDay();
     }
+
 
     private void endDay() {//readying the characters for the next day
         day++;
@@ -149,5 +150,52 @@ public class Bunker {
         return quantity;
     }
 
+    private void maintenance() {//Here the characters will be taken care of
+        System.out.println("1. Feed\n2. Water\n3. Heal\n4. Next");
+        int v = scan.nextInt();
+        scan.nextLine();
+        switch (v) {
+            case 1:
+                feed();
+            case 2:
+                water();
+            case 3:
+
+            case 4:
+
+        }
+    }
+
+    private void water() {// This will start the process of feeding characters
+        System.out.println("Who would you like to water?");
+        String type = "water";
+        whoToDo(type);
+    }
+
+    public void feed() {// This will start the process of watering characters
+        System.out.println("Who would you like to feed?");
+        String type = "food";
+        whoToDo(type);
+    }
+
+    void whoToDo(String type) { //this will enter the singular characters needs
+        int i;
+        for (i = 0; i < human.size(); i++) {
+            System.out.println((i + 1) + ". " + human.get(i).name);
+        }
+        System.out.println((i + 1) + ". Back");
+        int c = scan.nextInt();
+        for (int j = 0; j < human.size(); j++) {
+            if ((j + 1) == c) {
+                if (type.equals("food")) {
+                    human.get(j).eat();
+                }
+                if (type.equals("water")) {
+                    human.get(j).drink();
+                }
+            }
+
+        }
+    }
 
 }
