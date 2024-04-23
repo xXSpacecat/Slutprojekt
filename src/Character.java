@@ -38,13 +38,23 @@ public class Character {
     }
 
     public void eat() {
-
+        if (hunger <= 7) {
+            hunger -= 7;
+        }
+        if (hunger <= 12) {
+            hunger -= 4;
+        }
     }
 
     ;
 
     public void drink() {
-
+        if (thirst <= 5) {
+            thirst -= 5;
+        }
+        if (thirst <= 10) {
+            thirst -= 3;
+        }
     }
 
     ;

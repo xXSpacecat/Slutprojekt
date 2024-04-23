@@ -4,9 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="38cc0af5-f4cb-4688-83a4-3bca46665494" name="Changes" comment="fixat charactärer och metoder och sånt">
+    <list default="true" id="38cc0af5-f4cb-4688-83a4-3bca46665494" name="Changes" comment="ska börja ta hand om karaktärer">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Bunker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Bunker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Character.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Character.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Inventory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inventory.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,7 +79,8 @@
       <workItem from="1713248446070" duration="3593000" />
       <workItem from="1713340994915" duration="3811000" />
       <workItem from="1713429760490" duration="615000" />
-      <workItem from="1713767553021" duration="2546000" />
+      <workItem from="1713767553021" duration="3980000" />
+      <workItem from="1713895821782" duration="1450000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <option name="closed" value="true" />
@@ -127,7 +130,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713344819119</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="ska börja ta hand om karaktärer">
+      <option name="closed" value="true" />
+      <created>1713771762317</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1713771762317</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -151,6 +162,7 @@
     <MESSAGE value="försöker skapa sj'lvaste karaktärerna antalet funkar ej" />
     <MESSAGE value="bygger på hur spelet ska runna. karaktärernas antal funkar ej" />
     <MESSAGE value="fixat charactärer och metoder och sånt" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixat charactärer och metoder och sånt" />
+    <MESSAGE value="ska börja ta hand om karaktärer" />
+    <option name="LAST_COMMIT_MESSAGE" value="ska börja ta hand om karaktärer" />
   </component>
 </project>

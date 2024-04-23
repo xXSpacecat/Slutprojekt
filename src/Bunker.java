@@ -151,7 +151,7 @@ public class Bunker {
     }
 
     private void maintenance() {//Here the characters will be taken care of
-        System.out.println("1. Feed\n2. Water\n3. Heal\n4. Next");
+        System.out.println("  1. Feed\n  2. Water\n  3. Heal\n  4. Next");
         int v = scan.nextInt();
         scan.nextLine();
         switch (v) {
@@ -178,10 +178,16 @@ public class Bunker {
         whoToDo(type);
     }
 
+    public void heal() {// This will start the process of watering characters
+        System.out.println("Who would you like to heal?");
+        String type = "meds";
+        whoToDo(type);
+    }
+
     void whoToDo(String type) { //this will enter the singular characters needs
         int i;
         for (i = 0; i < human.size(); i++) {
-            System.out.println((i + 1) + ". " + human.get(i).name);
+            System.out.println(" " + (i + 1) + ". " + human.get(i).name);
         }
         System.out.println((i + 1) + ". Back");
         int c = scan.nextInt();
@@ -192,6 +198,9 @@ public class Bunker {
                 }
                 if (type.equals("water")) {
                     human.get(j).drink();
+                }
+                if (type.equals("meds")) {
+                    human.get(j).heal();
                 }
             }
 
