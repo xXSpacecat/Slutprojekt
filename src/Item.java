@@ -1,12 +1,15 @@
 public abstract class Item {
-    private Boolean repeatable;
+    public String name;
+    protected Boolean repeatable;
 
     public Item() {
     }
 
-    public void use(String itemName){
+    public void use(String itemName) {
 
-    };
+    }
+
+    ;
 
 
 }
