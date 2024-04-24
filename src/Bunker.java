@@ -10,13 +10,14 @@ public class Bunker {
     public ArrayList<Character> human = new ArrayList<Character>();
     private int day = 1;
     final int MAX_CHARACTERS = 4;
-    public Inventory inventory;
+    public Inventory inventory = new Inventory();
     private String fileName = "src/Names.txt";
     public Random rnd = new Random();
 
 
     public Bunker() {//The main game will be coded here
         ArrayList<String> names = readFromFile(fileName);
+
         characterCreate(input());
 
         while (!human.isEmpty()) {

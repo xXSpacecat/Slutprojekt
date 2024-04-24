@@ -8,5 +8,6 @@ public class Equipment extends Item {
 
     public Equipment(String name) {
         this.name = name;
+        super.repeatable = false;
     }
 }
