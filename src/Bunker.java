@@ -1,7 +1,7 @@
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Objects;
 import java.util.Scanner;
 import java.util.Random;
 
@@ -19,8 +19,8 @@ public class Bunker {
         ArrayList<String> names = readFromFile(fileName);
 
         characterCreate(input());
-
-        while (!human.isEmpty()) {
+        inventory.counter();
+        while (!human.isEmpty()) {//As long as someone is alive a new day will begin
             newDay(day);
         }
 
@@ -31,8 +31,22 @@ public class Bunker {
         String EventFile = "src/Events.txt";
         readFromFile(EventFile);
         dayInfo();
+        currentSupplies();
         maintenance();
         endDay();
+    }
+
+    private void currentSupplies() {// Tell the user what supplies it has in the bunker each day
+
+        System.out.println("The bunker currently has: ");
+        for (int i = 0; i < inventory.items.size(); i++) {
+            if (!Objects.equals(inventory.items.get(i).name, "water") && !Objects.equals(inventory.items.get(i).name, "food")) {
+                System.out.println("1 " + inventory.items.get(i).name);
+                //fix so that it writes out if the thing is broken
+            }
+        }
+        System.out.println(inventory.getFoodCounter() + " soups");
+        System.out.println(inventory.getWaterCounter() + " waters");
     }
 
 
@@ -152,18 +166,30 @@ public class Bunker {
     }
 
     private void maintenance() {//Here the characters will be taken care of
-        System.out.println("  1. Feed\n  2. Water\n  3. Heal\n  4. Next");
-        int v = scan.nextInt();
-        scan.nextLine();
-        switch (v) {
-            case 1:
-                feed();
-            case 2:
-                water();
-            case 3:
+        boolean moveOn = false;
+        while (!moveOn) {
+            System.out.println("  1. Feed\n  2. Water\n  3. Heal\n  4. Next");
+            int v = scan.nextInt();
+            scan.nextLine();
+            switch (v) {
+                case 1:
+                    feed();
+                    break;
+                case 2:
+                    water();
+                    break;
+                case 3:
+                    heal();
+                    break;
+                case 4:
+                    moveOn = true;
+                    break;
 
-            case 4:
+                default:
+                    System.out.println("please write in numbers 1 to 4");
+                    break;
 
+            }
         }
     }
 
@@ -195,10 +221,10 @@ public class Bunker {
         for (int j = 0; j < human.size(); j++) {
             if ((j + 1) == c) {
                 if (type.equals("food")) {
-                    human.get(j).eat();
+                    human.get(j).eat(this);
                 }
                 if (type.equals("water")) {
-                    human.get(j).drink();
+                    human.get(j).drink(this);
                 }
                 if (type.equals("meds")) {
                     human.get(j).heal();
@@ -206,6 +232,10 @@ public class Bunker {
             }
 
         }
+    }
+
+    public Inventory getInventory() {
+        return inventory;
     }
 
 }

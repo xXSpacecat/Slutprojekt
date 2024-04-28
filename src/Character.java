@@ -8,6 +8,8 @@ public class Character {
     public int crazy = 0;
     public int hurt = 0;
     public int sick = 0;
+    private boolean isFed = false;
+    private boolean isWatered = false;
 
 
     public Character() {
@@ -37,27 +39,52 @@ public class Character {
         }
     }
 
-    public void eat() {
-        if (hunger <= 7) {
-            hunger -= 7;
-        }
-        if (hunger <= 12) {
-            hunger -= 4;
+    /* public void eat() {
+
+     }
+
+     ;*/
+    public void eat(Bunker bunker) {// Decrease character's hunger by first checking the amount of food in the bunker
+        Inventory bunkerInventory = bunker.getInventory();
+        int foodCount = bunkerInventory.getFoodCounter();
+
+        if (foodCount > 0) {
+
+            if (this.hunger <= 7) {
+                this.hunger = 0;
+            }
+            if (this.hunger <= 12) {
+                this.hunger -= 4;
+            }
+
+            bunkerInventory.consumeFood();
+
+            System.out.println(name + " eats from the bunker.");
+        } else {
+            System.out.println("There's not enough food in the bunker!");
         }
     }
 
-    ;
+    public void drink(Bunker bunker) {// Decrease character's thisrt by first checking the amount of food in the bunker
+        Inventory bunkerInventory = bunker.getInventory();
+        int foodCount = bunkerInventory.getWaterCounter();
 
-    public void drink() {
-        if (thirst <= 5) {
-            thirst -= 5;
-        }
-        if (thirst <= 10) {
-            thirst -= 3;
+        if (foodCount > 0) {
+
+            if (this.thirst <= 5) {
+                this.thirst = 0;
+            }
+            if (this.thirst <= 10) {
+                this.thirst -= 2;
+            }
+
+            bunkerInventory.consumeWater();
+
+            System.out.println(name + " drinks from the bunker.");
+        } else {
+            System.out.println("There's not enough water in the bunker!");
         }
     }
-
-    ;
 
     public void heal() {
 

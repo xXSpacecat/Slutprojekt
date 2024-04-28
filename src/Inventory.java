@@ -3,20 +3,23 @@ import java.util.Objects;
 import java.util.Random;
 
 public class Inventory {
-    private ArrayList<Item> items = new ArrayList<Item>();
+    public ArrayList<Item> items = new ArrayList<Item>();
     private ArrayList<Item> allItems = new ArrayList<Item>();
     public Random rnd = new Random();
+
+
     private int waterCounter;
+
+
     private int foodCounter;
 
 
     public Inventory() {
         createItems();
         createInventory();
-        counter();
     }
 
-    private void counter() {
+    public void counter() { //This will count how much food and water the bunker has so that it will be cleaner to print out
         for (int i = 0; i < items.size(); i++) {
             if (items.get(i).name.equals("water")) {
                 waterCounter++;
@@ -26,8 +29,24 @@ public class Inventory {
         }
     }
 
-    public void consume(Consumable con) {
+    public void consumeFood() {//It will use up the food eaten
+        for (int i = 0; i < this.items.size(); i++) {
+            if (Objects.equals(this.items.get(i).name, "food")) {
+                this.items.remove(i);
+                foodCounter--;
+                break;
+            }
+        }
+    }
 
+    public void consumeWater() {//It will use up the water
+        for (int i = 0; i < this.items.size(); i++) {
+            if (Objects.equals(this.items.get(i).name, "water")) {
+                this.items.remove(i);
+                waterCounter--;
+                break;
+            }
+        }
     }
 
 
@@ -40,7 +59,7 @@ public class Inventory {
 
     }
 
-    private void createItems() {//Here all the Items will be created and pud in a general arraylist that will then later be used in events and other parts of the game where all the items should be availible.
+    private void createItems() {//Here all the Items will be created and put in a general arraylist that will then later be used in events and other parts of the game where all the items should be availible.
         allItems.add(new Equipment("gasmask"));
         allItems.add(new Equipment("rifle"));
         allItems.add(new Equipment("sledgeHammer"));
@@ -75,7 +94,7 @@ public class Inventory {
 
     }
 
-    private Boolean checkIfExists(Item item) {//Duplicates will not be allowed in the inventory
+    private Boolean checkIfExists(Item item) {//Duplicates of equipment will not be allowed in the inventory
         for (int i = 0; i < items.size(); i++) {
             if (Objects.equals(item.name, items.get(i).name) && !item.repeatable) {
                 return false;
@@ -85,5 +104,12 @@ public class Inventory {
         return true;
     }
 
+    public int getWaterCounter() {
+        return waterCounter;
+    }
+
+    public int getFoodCounter() {
+        return foodCounter;
+    }
 
 }
