@@ -50,7 +50,7 @@ public class Inventory {
     }
 
 
-    public void removeItem(Equipment nameOfItem) {
+    public void removeItem(String nameOfItem) {
 
     }
 

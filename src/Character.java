@@ -28,6 +28,8 @@ public class Character {
     public void sleep() {
         this.hunger++;
         this.thirst++;
+        this.isFed = false;
+        this.isWatered = false;
         if (this.sick > 0) {
             this.sick++;
         }
@@ -39,29 +41,28 @@ public class Character {
         }
     }
 
-    /* public void eat() {
-
-     }
-
-     ;*/
     public void eat(Bunker bunker) {// Decrease character's hunger by first checking the amount of food in the bunker
         Inventory bunkerInventory = bunker.getInventory();
         int foodCount = bunkerInventory.getFoodCounter();
+        if (!isFed) {
+            if (foodCount > 0) {
 
-        if (foodCount > 0) {
+                if (this.hunger <= 7) {
+                    this.hunger = 0;
+                }
+                if (this.hunger <= 12) {
+                    this.hunger -= 4;
+                }
 
-            if (this.hunger <= 7) {
-                this.hunger = 0;
+                bunkerInventory.consumeFood();
+
+                System.out.println(name + " eats from the bunker.");
+                isFed = true;
+            } else {
+                System.out.println("There's not enough food in the bunker!");
             }
-            if (this.hunger <= 12) {
-                this.hunger -= 4;
-            }
-
-            bunkerInventory.consumeFood();
-
-            System.out.println(name + " eats from the bunker.");
         } else {
-            System.out.println("There's not enough food in the bunker!");
+            System.out.println("They have already eaten");
         }
     }
 
@@ -69,35 +70,46 @@ public class Character {
         Inventory bunkerInventory = bunker.getInventory();
         int foodCount = bunkerInventory.getWaterCounter();
 
-        if (foodCount > 0) {
+        if (!isWatered) {
+            if (foodCount > 0) {
 
-            if (this.thirst <= 5) {
-                this.thirst = 0;
+                if (this.thirst <= 5) {
+                    this.thirst = 0;
+                }
+                if (this.thirst <= 10) {
+                    this.thirst -= 2;
+                }
+
+                bunkerInventory.consumeWater();
+                isWatered = true;
+                System.out.println(name + " drinks from the bunker.");
+            } else {
+                System.out.println("There's not enough water in the bunker!");
             }
-            if (this.thirst <= 10) {
-                this.thirst -= 2;
-            }
-
-            bunkerInventory.consumeWater();
-
-            System.out.println(name + " drinks from the bunker.");
         } else {
-            System.out.println("There's not enough water in the bunker!");
+            System.out.println("They drank earlier");
         }
     }
 
-    public void heal() {
+    public void heal(Bunker bunker) {// Decrease character's hunger by first checking the amount of food in the bunker
+        Inventory bunkerInventory = bunker.getInventory();
 
+        boolean isMedKit = false;
+        for (int i = 0; i < bunkerInventory.items.size(); i++) {
+            if (bunkerInventory.items.get(i).name == "medKit") {
+                isMedKit = true;
+            }
+
+        }
+        if (isMedKit) {
+            this.hurt = 0;
+            bunkerInventory.removeItem("medKit");
+
+            System.out.println(name + " is healed.");
+        } else {
+            System.out.println("You don't own a medKit");
+        }
     }
-
-    ;
-
-    public void die() {
-
-
-    }
-
-    ;
 
 
 }

@@ -158,7 +158,7 @@ public class Bunker {
                 scan.nextLine();
             } catch (Exception e) {
                 scan.nextLine();
-                quantity = 10;
+                quantity = (MAX_CHARACTERS + 1);
                 System.out.println("Please, write in numbers 1 - 4");
             }
         } while (quantity > MAX_CHARACTERS || quantity < 1);
@@ -169,19 +169,18 @@ public class Bunker {
         boolean moveOn = false;
         while (!moveOn) {
             System.out.println("  1. Feed\n  2. Water\n  3. Heal\n  4. Next");
-            int v = scan.nextInt();
-            scan.nextLine();
+            String v = scan.nextLine();
             switch (v) {
-                case 1:
+                case "1":
                     feed();
                     break;
-                case 2:
+                case "2":
                     water();
                     break;
-                case 3:
+                case "3":
                     heal();
                     break;
-                case 4:
+                case "4":
                     moveOn = true;
                     break;
 
@@ -213,24 +212,44 @@ public class Bunker {
 
     void whoToDo(String type) { //this will enter the singular characters needs
         int i;
-        for (i = 0; i < human.size(); i++) {
-            System.out.println(" " + (i + 1) + ". " + human.get(i).name);
-        }
-        System.out.println((i + 1) + ". Back");
-        int c = scan.nextInt();
-        for (int j = 0; j < human.size(); j++) {
-            if ((j + 1) == c) {
-                if (type.equals("food")) {
-                    human.get(j).eat(this);
-                }
-                if (type.equals("water")) {
-                    human.get(j).drink(this);
-                }
-                if (type.equals("meds")) {
-                    human.get(j).heal();
-                }
+        boolean done = false;
+        while (!done) {
+            for (i = 0; i < human.size(); i++) {
+                System.out.println(" " + (i + 1) + ". " + human.get(i).name);
             }
+            System.out.println((i + 1) + ". Back");
+            try {
+                int c = scan.nextInt();
+                scan.nextLine();
+                if ((human.size() + 1) == c) {
+                    done = true;
+                    break;
+                }
+                for (int j = 0; j < human.size(); j++) {
+                    if ((j + 1) == c) {
+                        if (type.equals("food")) {
+                            human.get(j).eat(this);
+                            break;
+                        }
+                        if (type.equals("water")) {
+                            human.get(j).drink(this);
+                            break;
+                        }
+                        if (type.equals("meds")) {
+                            human.get(j).heal(this);
+                            break;
+                        }
 
+                    } else {
+                        System.out.println("please write in numbers 1 - " + (human.size() + 1));
+                    }
+                }
+
+
+            } catch (Exception e) {
+                System.out.println("please write in number 1 - " + (human.size() + 1));
+                scan.nextLine();
+            }
         }
     }
 

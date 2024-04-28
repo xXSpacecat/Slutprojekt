@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="38cc0af5-f4cb-4688-83a4-3bca46665494" name="Changes" comment="inventory och item systemet ska byggas, håller fortfarande på, skapar första inventoryn, fortsätter">
+    <list default="true" id="38cc0af5-f4cb-4688-83a4-3bca46665494" name="Changes" comment="Fixar matdelen, blir basically en feeding simulator om jag inte hinner med mer">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Bunker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Bunker.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Character.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Character.java" afterDir="false" />
@@ -83,7 +83,7 @@
       <workItem from="1713895821782" duration="1691000" />
       <workItem from="1713945507707" duration="4240000" />
       <workItem from="1713955031846" duration="3480000" />
-      <workItem from="1714291586475" duration="4188000" />
+      <workItem from="1714291586475" duration="8230000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <option name="closed" value="true" />
@@ -165,7 +165,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713958564373</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Fixar matdelen, blir basically en feeding simulator om jag inte hinner med mer">
+      <option name="closed" value="true" />
+      <created>1714296700144</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1714296700144</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -193,6 +201,17 @@
     <MESSAGE value="inventory och item systemet ska byggas" />
     <MESSAGE value="inventory och item systemet ska byggas, håller fortfarande på, skapar första inventoryn" />
     <MESSAGE value="inventory och item systemet ska byggas, håller fortfarande på, skapar första inventoryn, fortsätter" />
-    <option name="LAST_COMMIT_MESSAGE" value="inventory och item systemet ska byggas, håller fortfarande på, skapar första inventoryn, fortsätter" />
+    <MESSAGE value="Fixar matdelen, blir basically en feeding simulator om jag inte hinner med mer" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixar matdelen, blir basically en feeding simulator om jag inte hinner med mer" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.util.InputMismatchException" package="java.util" />
+          <option name="timeStamp" value="2" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
