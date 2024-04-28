@@ -1,7 +1,5 @@
 public class Consumable extends Item {
 
-    public int satisfaction;
-
 
     public Consumable() {
     }
@@ -10,4 +8,6 @@ public class Consumable extends Item {
         this.name = name;
         super.repeatable = true;
     }
+
+
 }

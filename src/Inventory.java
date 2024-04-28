@@ -50,12 +50,17 @@ public class Inventory {
     }
 
 
-    public void removeItem(String nameOfItem) {
-
+    public void useItem(String nameOfItem, Bunker bunker) {//uses upp item
+        for (int i = 0; i < this.items.size(); i++) {
+            if (Objects.equals(nameOfItem, this.items.get(i).name)) {
+                this.items.get(i).use();
+                break;
+            }
+        }
     }
 
 
-    public void addItem(Equipment nameOfItem) {
+    public void addItem(String nameOfItem) {
 
     }
 

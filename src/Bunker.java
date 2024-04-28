@@ -33,6 +33,7 @@ public class Bunker {
         dayInfo();
         currentSupplies();
         maintenance();
+        prepExp();
         endDay();
     }
 
@@ -57,7 +58,6 @@ public class Bunker {
         }
     }
 
-    ;
 
     public void dayInfo() {// writes out the stats of each character for the user to interpret
         for (int i = 0; i < human.size(); i++) {
@@ -91,22 +91,25 @@ public class Bunker {
 
     }
 
-    ;
 
     public void prepExp() {
-
+        System.out.println("Do you want to go on an expedition?");
+        String exp = scan.next();
+        while (true) {
+            if (exp.equalsIgnoreCase("y")) {
+                whoToDo("exp");
+                break;
+            } else if (exp.equalsIgnoreCase("n")) {
+                break;
+            } else {
+                System.out.println("please write 'y' for yes or 'n' for no.");
+            }
+        }
     }
 
-    ;
-
-    public int characterStatus() {
-        return 0;
-    }
-
-    ;
 
     private ArrayList<String> readFromFile(String fileName) {//reading from files to use repeatable info
-        ArrayList<String> names = new ArrayList<String>();
+        ArrayList<String> names = new ArrayList<>();
         try {
             File file = new File(fileName);
             Scanner myFileScanner = new Scanner(file);
@@ -122,28 +125,19 @@ public class Bunker {
 
     private String giveName(ArrayList<String> names) {//Randomize the names given to characters for every run
         int nameIndx = rnd.nextInt(names.size());
-        String chaName = names.get(nameIndx);
-        names.remove(nameIndx);
-        return chaName;
+        return names.get(nameIndx);
     }
 
     private void characterCreate(int quantity) {//I create the characters that the game will follow
+        ArrayList<String> names = (readFromFile(fileName));
+        String name;
 
-        if (quantity == 2) {
-            human.add(new Character(giveName(readFromFile(fileName))));
-            human.add(new Character(giveName(readFromFile(fileName))));
-        } else if (quantity == 3) {
-            human.add(new Character(giveName(readFromFile(fileName))));
-            human.add(new Character(giveName(readFromFile(fileName))));
-            human.add(new Character(giveName(readFromFile(fileName))));
-        } else if (quantity == 4) {
-            human.add(new Character(giveName(readFromFile(fileName))));
-            human.add(new Character(giveName(readFromFile(fileName))));
-            human.add(new Character(giveName(readFromFile(fileName))));
-            human.add(new Character(giveName(readFromFile(fileName))));
-        } else {
-            human.add(new Character(giveName(readFromFile(fileName))));
+        for (int i = 0; i < quantity; i++) {
+            name = giveName(names);
+            human.add(new Character(name));
+            names.remove(name);
         }
+
         for (int i = 0; i < human.size(); i++) {
             System.out.println(human.get(i).name);
         }
@@ -210,7 +204,7 @@ public class Bunker {
         whoToDo(type);
     }
 
-    void whoToDo(String type) { //this will enter the singular characters needs
+    public void whoToDo(String type) { //this will enter the singular characters needs
         int i;
         boolean done = false;
         while (!done) {
@@ -239,9 +233,13 @@ public class Bunker {
                             human.get(j).heal(this);
                             break;
                         }
+                        if (type.equals("exp")) {
+                            Expedition expedition = new Expedition(human.get(j));
+                            break;
+                        }
 
-                    } else {
-                        System.out.println("please write in numbers 1 - " + (human.size() + 1));
+                    } else if ((c > human.size() + 1)) {
+                        System.out.println("please stay within range of options.");
                     }
                 }
 
@@ -253,7 +251,7 @@ public class Bunker {
         }
     }
 
-    public Inventory getInventory() {
+    public Inventory getInventory() {//Supplying the inventory to other classes
         return inventory;
     }
 

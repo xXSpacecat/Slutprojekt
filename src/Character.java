@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public class Character {
 
     public String name;
@@ -19,11 +21,6 @@ public class Character {
         this.name = name;
     }
 
-    public void goOnExp(Equipment inUse) {
-
-    }
-
-    ;
 
     public void sleep() {
         this.hunger++;
@@ -94,16 +91,17 @@ public class Character {
     public void heal(Bunker bunker) {// Decrease character's hunger by first checking the amount of food in the bunker
         Inventory bunkerInventory = bunker.getInventory();
 
-        boolean isMedKit = false;
+        boolean hasMedKit = false;
         for (int i = 0; i < bunkerInventory.items.size(); i++) {
-            if (bunkerInventory.items.get(i).name == "medKit") {
-                isMedKit = true;
+            if (Objects.equals(bunkerInventory.items.get(i).name, "medKit")) {
+                hasMedKit = true;
+                break;
             }
 
         }
-        if (isMedKit) {
+        if (hasMedKit) {
             this.hurt = 0;
-            bunkerInventory.removeItem("medKit");
+            bunkerInventory.useItem("medkit", bunker);
 
             System.out.println(name + " is healed.");
         } else {

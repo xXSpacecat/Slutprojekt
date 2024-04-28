@@ -10,4 +10,6 @@ public class Equipment extends Item {
         this.name = name;
         super.repeatable = false;
     }
+
+
 }
