@@ -3,7 +3,7 @@ import java.util.Objects;
 public class Character {
 
     public String name;
-    public boolean onExp;
+    public boolean onExp = false;
     private Item equipped;
     public int hunger = 0;
     public int thirst = 0;

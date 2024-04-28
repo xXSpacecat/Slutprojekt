@@ -4,13 +4,12 @@ import java.util.Random;
 
 public class Inventory {
     public ArrayList<Item> items = new ArrayList<Item>();
+
     private ArrayList<Item> allItems = new ArrayList<Item>();
     public Random rnd = new Random();
 
 
     private int waterCounter;
-
-
     private int foodCounter;
 
 
@@ -20,6 +19,8 @@ public class Inventory {
     }
 
     public void counter() { //This will count how much food and water the bunker has so that it will be cleaner to print out
+        waterCounter = 0;
+        foodCounter = 0;
         for (int i = 0; i < items.size(); i++) {
             if (items.get(i).name.equals("water")) {
                 waterCounter++;
@@ -115,6 +116,10 @@ public class Inventory {
 
     public int getFoodCounter() {
         return foodCounter;
+    }
+
+    public ArrayList<Item> getAllItems() {
+        return allItems;
     }
 
 }

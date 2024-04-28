@@ -7,12 +7,12 @@ public abstract class Item {
 
     public String itemStatus = " ";
 
-    public Random rnd = new Random();
+    private Random rnd = new Random();
 
     public Item() {
     }
 
-    public void use() {
+    public void use() {// objects will have a chance at braking after every use, medkits can only be used once
         if (Objects.equals(this.name, "medKit")) {
             this.itemStatus = "empty";
         } else {

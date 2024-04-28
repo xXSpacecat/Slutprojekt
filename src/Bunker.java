@@ -7,12 +7,15 @@ import java.util.Random;
 
 public class Bunker {
     public Scanner scan = new Scanner(System.in);
-    public ArrayList<Character> human = new ArrayList<Character>();
+    public ArrayList<Character> humanInBunker = new ArrayList<Character>();
+    public ArrayList<Character> humans = new ArrayList<Character>();
     private int day = 1;
     final int MAX_CHARACTERS = 4;
     public Inventory inventory = new Inventory();
     private String fileName = "src/Names.txt";
-    public Random rnd = new Random();
+    private Random rnd = new Random();
+
+    private Expedition expedition;
 
 
     public Bunker() {//The main game will be coded here
@@ -20,7 +23,12 @@ public class Bunker {
 
         characterCreate(input());
         inventory.counter();
-        while (!human.isEmpty()) {//As long as someone is alive a new day will begin
+        System.out.println("Welcome to my Bunker game!");
+        System.out.println("Here you will survive however long you can with the number of characters of your choice.");
+        System.out.println("The game is not fully developed but is already playable.");
+        System.out.println("You make your choices by inputting a number before the option of your choice or by writing 'y' for yes an 'n' for no.");
+        System.out.println("To continue just press enter");
+        while (!humans.isEmpty()) {//As long as someone is alive a new day will begin
             newDay(day);
         }
 
@@ -28,13 +36,53 @@ public class Bunker {
     }
 
     public void newDay(int currentDay) {//The happenings of each day will be coded here
+        System.out.println("DAY : " + day);
         String EventFile = "src/Events.txt";
         readFromFile(EventFile);
         dayInfo();
         currentSupplies();
         maintenance();
-        prepExp();
+        checkExpedition();
         endDay();
+    }
+
+    private void checkExpedition() {//If the expedition is done the human will be brought back, If the user is tired of waiting he can himself end the expedition
+        if (expedition != null) {
+            Character character = expedition.checkExp();
+
+            if (character != null) {
+                humanInBunker.add(character);
+                System.out.println(character.name + " is back from the expedition!");
+                ArrayList<Item> newItems = expedition.foundItems();
+                for (int i = 0; i < newItems.size(); i++) {
+                    if (!inventory.items.contains(newItems.get(i))) {
+                        inventory.items.add(newItems.get(i));
+                    }
+                }
+                inventory.items.add(new Consumable("water"));
+                inventory.items.add(new Consumable("food"));
+                inventory.counter();
+                expedition = null;
+            } else {
+                System.out.println(expedition.getPerson().name + " has been out for " + expedition.daysOnExp + " days, Do you want to terminate expedition (" + expedition.getPerson().name + " will die if expedition is terminated) (y/n)");
+
+                while (true) {
+                    String killExp = scan.nextLine();
+                    if (killExp.equalsIgnoreCase("y")) {
+                        System.out.println(expedition.getPerson().name + " will not return from the expedition");
+                        expedition = null;
+                        break;
+                    } else if (killExp.equalsIgnoreCase("n")) {
+                        break;
+                    } else {
+                        System.out.println("please write 'y' for yes or 'n' for no.");
+                    }
+                }
+            }
+        } else {
+            System.out.println("You have no current expedition.");
+            prepExp();
+        }
     }
 
     private void currentSupplies() {// Tell the user what supplies it has in the bunker each day
@@ -53,39 +101,43 @@ public class Bunker {
 
     private void endDay() {//readying the characters for the next day
         day++;
-        for (int i = 0; i < human.size(); i++) {
-            human.get(i).sleep();
+        for (int i = 0; i < humanInBunker.size(); i++) {
+            humanInBunker.get(i).sleep();
         }
     }
 
 
     public void dayInfo() {// writes out the stats of each character for the user to interpret
-        for (int i = 0; i < human.size(); i++) {
-            if (human.get(i).hunger >= 14) {
-                System.out.println(human.get(i).name + " starved to death, rats eating away at their corpse.");
-                human.remove(i);
-            } else if (human.get(i).hunger >= 12) {
-                System.out.println(human.get(i).name + " is starving, they have one foot in the grave.");
+        ArrayList<Character> humansToRemove = new ArrayList<>();
+        for (int i = 0; i < humanInBunker.size(); i++) {
+            if (humanInBunker.get(i).hunger >= 14) {
+                System.out.println(humanInBunker.get(i).name + " starved to death, rats eating away at their corpse.");
+                humansToRemove.add(humanInBunker.get(i));
+            } else if (humanInBunker.get(i).hunger >= 12) {
+                System.out.println(humanInBunker.get(i).name + " is starving, they have one foot in the grave.");
                 //fix so that the food will heal less
 
-            } else if (human.get(i).hunger >= 7) {
-                System.out.println(human.get(i).name + " is hungry");
+            } else if (humanInBunker.get(i).hunger >= 7) {
+                System.out.println(humanInBunker.get(i).name + " is hungry");
 
             }
-            if (human.get(i).thirst >= 10) {
-                System.out.println(human.get(i).name + " dried out to death, rats eating away at their corpse.");
-                human.remove(i);
-            } else if (human.get(i).thirst >= 8) {
-                System.out.println(human.get(i).name + " is parched, they have one foot in the grave.");
-                //fix so that the food will heal less
+            if (humanInBunker.get(i).thirst >= 10) {
+                System.out.println(humanInBunker.get(i).name + " dried out to death, rats eating away at their corpse.");
+                humansToRemove.add(humanInBunker.get(i));
+            } else if (humanInBunker.get(i).thirst >= 8) {
+                System.out.println(humanInBunker.get(i).name + " is parched, they have one foot in the grave.");
 
-            } else if (human.get(i).thirst >= 5) {
-                System.out.println(human.get(i).name + " is thirsty.");
+            } else if (humanInBunker.get(i).thirst >= 5) {
+                System.out.println(humanInBunker.get(i).name + " is thirsty.");
 
             } else {
-                System.out.println(human.get(i).name + " is feeling fine.");
+                System.out.println(humanInBunker.get(i).name + " is feeling fine.");
             }
 
+        }
+        for (int i = 0; i < humansToRemove.size(); i++) {
+            humanInBunker.remove(humansToRemove.get(i));
+            humans.remove(humansToRemove.get(i));
         }
         scan.nextLine();
 
@@ -93,7 +145,7 @@ public class Bunker {
 
 
     public void prepExp() {
-        System.out.println("Do you want to go on an expedition?");
+        System.out.println("Do you want to go on an expedition? (y/n)");
         String exp = scan.next();
         while (true) {
             if (exp.equalsIgnoreCase("y")) {
@@ -134,12 +186,12 @@ public class Bunker {
 
         for (int i = 0; i < quantity; i++) {
             name = giveName(names);
-            human.add(new Character(name));
+            humanInBunker.add(new Character(name));
             names.remove(name);
         }
-
-        for (int i = 0; i < human.size(); i++) {
-            System.out.println(human.get(i).name);
+        humans = humanInBunker;
+        for (int i = 0; i < humanInBunker.size(); i++) {
+            System.out.println(humanInBunker.get(i).name);
         }
     }
 
@@ -147,7 +199,7 @@ public class Bunker {
         int quantity;
         do {
             try {
-                System.out.println("Write in numbers the number of characters you would like to start the game with (Not more than 4): ");
+                System.out.println("Write in numbers the number of characters you would like to start the game with (Not more than " + MAX_CHARACTERS + "): ");
                 quantity = scan.nextInt();
                 scan.nextLine();
             } catch (Exception e) {
@@ -208,44 +260,48 @@ public class Bunker {
         int i;
         boolean done = false;
         while (!done) {
-            for (i = 0; i < human.size(); i++) {
-                System.out.println(" " + (i + 1) + ". " + human.get(i).name);
+            for (i = 0; i < humanInBunker.size(); i++) {
+                System.out.println(" " + (i + 1) + ". " + humanInBunker.get(i).name);
             }
             System.out.println((i + 1) + ". Back");
             try {
                 int c = scan.nextInt();
                 scan.nextLine();
-                if ((human.size() + 1) == c) {
+                if ((humanInBunker.size() + 1) == c) {
                     done = true;
                     break;
                 }
-                for (int j = 0; j < human.size(); j++) {
+                for (int j = 0; j < humanInBunker.size(); j++) {
                     if ((j + 1) == c) {
                         if (type.equals("food")) {
-                            human.get(j).eat(this);
+                            humanInBunker.get(j).eat(this);
                             break;
                         }
                         if (type.equals("water")) {
-                            human.get(j).drink(this);
+                            humanInBunker.get(j).drink(this);
                             break;
                         }
                         if (type.equals("meds")) {
-                            human.get(j).heal(this);
+                            humanInBunker.get(j).heal(this);
                             break;
                         }
                         if (type.equals("exp")) {
-                            Expedition expedition = new Expedition(human.get(j));
-                            break;
+                            if (expedition == null) {
+                                expedition = new Expedition(humanInBunker.get(j), inventory.getAllItems());
+                                humanInBunker.remove(j);
+                                done = true;
+                                break;
+                            }
                         }
 
-                    } else if ((c > human.size() + 1)) {
+                    } else if ((c > humanInBunker.size() + 1)) {
                         System.out.println("please stay within range of options.");
                     }
                 }
 
 
             } catch (Exception e) {
-                System.out.println("please write in number 1 - " + (human.size() + 1));
+                System.out.println("please write in number 1 - " + (humanInBunker.size() + 1));
                 scan.nextLine();
             }
         }
