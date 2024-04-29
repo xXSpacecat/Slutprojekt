@@ -16,6 +16,12 @@ public class Expedition {
         die();
     }
 
+    public Expedition(Character character, ArrayList items, Equipment equipment) {
+        person = character;
+        this.items = items;
+        die();
+    }
+
     public ArrayList<Item> foundItems() {
         ArrayList<Item> foundItem = new ArrayList<>();
         for (int i = 0; i < rnd.nextInt(1, 4); i++) {

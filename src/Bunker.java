@@ -20,14 +20,15 @@ public class Bunker {
 
     public Bunker() {//The main game will be coded here
         ArrayList<String> names = readFromFile(fileName);
-
-        characterCreate(input());
-        inventory.counter();
         System.out.println("Welcome to my Bunker game!");
         System.out.println("Here you will survive however long you can with the number of characters of your choice.");
         System.out.println("The game is not fully developed but is already playable.");
         System.out.println("You make your choices by inputting a number before the option of your choice or by writing 'y' for yes an 'n' for no.");
         System.out.println("To continue just press enter");
+        scan.nextLine();
+        characterCreate(input());
+        inventory.counter();
+
         while (!humans.isEmpty()) {//As long as someone is alive a new day will begin
             newDay(day);
         }
@@ -149,6 +150,7 @@ public class Bunker {
         String exp = scan.next();
         while (true) {
             if (exp.equalsIgnoreCase("y")) {
+                System.out.println("Who would you like to send?");
                 whoToDo("exp");
                 break;
             } else if (exp.equalsIgnoreCase("n")) {
@@ -286,12 +288,9 @@ public class Bunker {
                             break;
                         }
                         if (type.equals("exp")) {
-                            if (expedition == null) {
-                                expedition = new Expedition(humanInBunker.get(j), inventory.getAllItems());
-                                humanInBunker.remove(j);
-                                done = true;
-                                break;
-                            }
+                            goOnExp(humanInBunker.get(j));
+                            done = true;
+                            break;
                         }
 
                     } else if ((c > humanInBunker.size() + 1)) {
@@ -306,6 +305,52 @@ public class Bunker {
             }
         }
     }
+
+    private void goOnExp(Character character) {
+        if (expedition == null) {
+            System.out.println("do you want to send them off with any equipment?(y/n)");
+            String wantsEquip = scan.next();
+            while (true) {
+                if (wantsEquip.equalsIgnoreCase("y")) {
+                    expedition = new Expedition(character, inventory.getAllItems(), whatToEquip());
+                    humanInBunker.remove(character);
+                    break;
+                } else if (wantsEquip.equalsIgnoreCase("n")) {
+                    expedition = new Expedition(character, inventory.getAllItems());
+                    break;
+                } else {
+                    System.out.println("please write 'y' for yes or 'n' for no.");
+                }
+            }
+
+
+        }
+    }
+
+    private Equipment whatToEquip() {// by finding the owned equipment in items the characters can bring back more loot from expeditions
+        System.out.println(" What would you like to equip?");
+        int num = 0;
+        ArrayList<Equipment> equipment = new ArrayList<>();
+        for (int i = 0; i < inventory.items.size(); i++) {
+            if (inventory.items.get(i) instanceof Equipment) {
+                num++;
+                System.out.println("  " + (num) + ". " + inventory.items.get(i).name);
+                equipment.add((Equipment) inventory.items.get(i));
+            }
+        }
+        int equipmentChosen;
+        while (true) {
+            try {
+                equipmentChosen = scan.nextInt();
+                break;
+            } catch (Exception e) {
+                System.out.println("Please write in numbers 1 - " + num);
+            }
+        }
+        return equipment.get(equipmentChosen);
+
+    }
+
 
     public Inventory getInventory() {//Supplying the inventory to other classes
         return inventory;

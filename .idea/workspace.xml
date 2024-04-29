@@ -4,13 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="38cc0af5-f4cb-4688-83a4-3bca46665494" name="Changes" comment="fixar amn och expedition">
+    <list default="true" id="38cc0af5-f4cb-4688-83a4-3bca46665494" name="Changes" comment="it is playable">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Bunker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Bunker.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Character.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Character.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Expedition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Expedition.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Inventory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inventory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Item.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,7 +84,8 @@
       <workItem from="1713945507707" duration="4240000" />
       <workItem from="1713955031846" duration="3480000" />
       <workItem from="1714291586475" duration="14552000" />
-      <workItem from="1714324674663" duration="10304000" />
+      <workItem from="1714324674663" duration="10344000" />
+      <workItem from="1714372275858" duration="3928000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <option name="closed" value="true" />
@@ -192,7 +191,15 @@
       <option name="project" value="LOCAL" />
       <updated>1714306669413</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="it is playable">
+      <option name="closed" value="true" />
+      <created>1714335085571</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1714335085571</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -223,7 +230,8 @@
     <MESSAGE value="Fixar matdelen, blir basically en feeding simulator om jag inte hinner med mer" />
     <MESSAGE value="Nu funkar allt fram till att de faktiskt ska göra något, så charactärerna funkar nu utom att jag inte riktigt listat ut hur jag vill göra galenskapen samt måste någon typ av story skapas" />
     <MESSAGE value="fixar amn och expedition" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixar amn och expedition" />
+    <MESSAGE value="it is playable" />
+    <option name="LAST_COMMIT_MESSAGE" value="it is playable" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
