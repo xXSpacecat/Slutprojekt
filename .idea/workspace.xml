@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="38cc0af5-f4cb-4688-83a4-3bca46665494" name="Changes" comment="it is playable">
+    <list default="true" id="38cc0af5-f4cb-4688-83a4-3bca46665494" name="Changes" comment="You can equip items to expeditions">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Bunker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Bunker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Character.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Character.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Expedition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Expedition.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Consumable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Consumable.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,6 +49,9 @@
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;actions.on.save&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
@@ -85,7 +87,10 @@
       <workItem from="1713955031846" duration="3480000" />
       <workItem from="1714291586475" duration="14552000" />
       <workItem from="1714324674663" duration="10344000" />
-      <workItem from="1714372275858" duration="3928000" />
+      <workItem from="1714372275858" duration="3989000" />
+      <workItem from="1714979599764" duration="910000" />
+      <workItem from="1715585608000" duration="857000" />
+      <workItem from="1715668791571" duration="2540000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <option name="closed" value="true" />
@@ -199,7 +204,15 @@
       <option name="project" value="LOCAL" />
       <updated>1714335085571</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="You can equip items to expeditions">
+      <option name="closed" value="true" />
+      <created>1714376277397</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1714376277397</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -231,7 +244,8 @@
     <MESSAGE value="Nu funkar allt fram till att de faktiskt ska göra något, så charactärerna funkar nu utom att jag inte riktigt listat ut hur jag vill göra galenskapen samt måste någon typ av story skapas" />
     <MESSAGE value="fixar amn och expedition" />
     <MESSAGE value="it is playable" />
-    <option name="LAST_COMMIT_MESSAGE" value="it is playable" />
+    <MESSAGE value="You can equip items to expeditions" />
+    <option name="LAST_COMMIT_MESSAGE" value="You can equip items to expeditions" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

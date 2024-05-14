@@ -52,19 +52,9 @@ public class Bunker {
             Character character = expedition.checkExp();
 
             if (character != null) {
-                humanInBunker.add(character);
-                System.out.println(character.name + " is back from the expedition!");
-                ArrayList<Item> newItems = expedition.foundItems();
-                for (int i = 0; i < newItems.size(); i++) {
-                    if (!inventory.items.contains(newItems.get(i))) {
-                        inventory.items.add(newItems.get(i));
-                    }
-                }
-                inventory.items.add(new Consumable("water"));
-                inventory.items.add(new Consumable("food"));
-                inventory.counter();
-                expedition = null;
-            } else {
+                bringBackCharacter(character);
+
+            } else {//THe character can be killed off if user wants to and then expedition will be available again.
                 System.out.println(expedition.getPerson().name + " has been out for " + expedition.daysOnExp + " days, Do you want to terminate expedition (" + expedition.getPerson().name + " will die if expedition is terminated) (y/n)");
 
                 while (true) {
@@ -84,6 +74,21 @@ public class Bunker {
             System.out.println("You have no current expedition.");
             prepExp();
         }
+    }
+
+    private void bringBackCharacter(Character character) {//The character will be brought back if not dead and what it brings will be added to inventory
+        humanInBunker.add(character);
+        System.out.println(character.name + " is back from the expedition!");
+        ArrayList<Item> newItems = expedition.foundItems();
+        for (int i = 0; i < newItems.size(); i++) {
+            if (!inventory.items.contains(newItems.get(i))) {
+                inventory.items.add(newItems.get(i));
+            }
+        }
+        inventory.items.add(new Consumable("water"));
+        inventory.items.add(new Consumable("food"));
+        inventory.counter();
+        expedition = null;
     }
 
     private void currentSupplies() {// Tell the user what supplies it has in the bunker each day
@@ -116,7 +121,6 @@ public class Bunker {
                 humansToRemove.add(humanInBunker.get(i));
             } else if (humanInBunker.get(i).hunger >= 12) {
                 System.out.println(humanInBunker.get(i).name + " is starving, they have one foot in the grave.");
-                //fix so that the food will heal less
 
             } else if (humanInBunker.get(i).hunger >= 7) {
                 System.out.println(humanInBunker.get(i).name + " is hungry");
@@ -145,10 +149,10 @@ public class Bunker {
     }
 
 
-    public void prepExp() {
+    public void prepExp() {//Here the player can choose to go on an expedition
         System.out.println("Do you want to go on an expedition? (y/n)");
-        String exp = scan.next();
         while (true) {
+            String exp = scan.next();
             if (exp.equalsIgnoreCase("y")) {
                 System.out.println("Who would you like to send?");
                 whoToDo("exp");
@@ -297,8 +301,6 @@ public class Bunker {
                         System.out.println("please stay within range of options.");
                     }
                 }
-
-
             } catch (Exception e) {
                 System.out.println("please write in number 1 - " + (humanInBunker.size() + 1));
                 scan.nextLine();
@@ -306,17 +308,21 @@ public class Bunker {
         }
     }
 
-    private void goOnExp(Character character) {
+    private void goOnExp(Character character) {// the user has chosen to go on expedition, here you chose if you want an equipment
         if (expedition == null) {
             System.out.println("do you want to send them off with any equipment?(y/n)");
-            String wantsEquip = scan.next();
             while (true) {
+                String wantsEquip = scan.next();
                 if (wantsEquip.equalsIgnoreCase("y")) {
-                    expedition = new Expedition(character, inventory.getAllItems(), whatToEquip());
+                    Equipment equip = whatToEquip();
+                    expedition = new Expedition(character, inventory.getAllItems(), equip);
+                    System.out.println(character.name + " went out to explore with a " + equip.name);
                     humanInBunker.remove(character);
                     break;
                 } else if (wantsEquip.equalsIgnoreCase("n")) {
                     expedition = new Expedition(character, inventory.getAllItems());
+                    System.out.println(character.name + " went out to explore.");
+                    humanInBunker.remove(character);
                     break;
                 } else {
                     System.out.println("please write 'y' for yes or 'n' for no.");
@@ -340,9 +346,14 @@ public class Bunker {
         }
         int equipmentChosen;
         while (true) {
+            scan.nextLine();
             try {
                 equipmentChosen = scan.nextInt();
-                break;
+                if (equipmentChosen > equipment.size()) {
+                    System.out.println("please write in numbers within range of options");
+                } else {
+                    break;
+                }
             } catch (Exception e) {
                 System.out.println("Please write in numbers 1 - " + num);
             }

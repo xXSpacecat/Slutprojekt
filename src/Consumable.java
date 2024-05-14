@@ -8,6 +8,6 @@ public class Consumable extends Item {
         this.name = name;
         super.repeatable = true;
     }
-
+    
 
 }
