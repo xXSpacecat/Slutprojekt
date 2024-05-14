@@ -2,18 +2,26 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class Expedition {
-    private Random rnd = new Random();
-    private int daysLeft = rnd.nextInt(1, 4);
+    public Random rnd = new Random();
+    private int daysLeft = rnd.nextInt(1, 7);
     private Character person;
     private boolean isDead = false;
-    private int dangerRate = rnd.nextInt(3, 10);
+    public int dangerRate = rnd.nextInt(7, 14);
     public int daysOnExp;
-    private ArrayList<Item> items = new ArrayList<>();
+    public int mostItemsFound;
+    public ArrayList<Item> items = new ArrayList<>();
+
+    public Expedition() {
+
+    }
 
     public Expedition(Character character, ArrayList items) {
         person = character;
         this.items = items;
+        chooseExpType();
+        int expType = rnd.nextInt(4);
         die();
+
     }
 
     public Expedition(Character character, ArrayList items, Equipment equipment) {
@@ -22,9 +30,13 @@ public class Expedition {
         die();
     }
 
+    private void chooseExpType() {
+
+    }
+
     public ArrayList<Item> foundItems() {
         ArrayList<Item> foundItem = new ArrayList<>();
-        for (int i = 0; i < rnd.nextInt(1, 4); i++) {
+        for (int i = 0; i < rnd.nextInt(1, mostItemsFound); i++) {
             foundItem.add(items.get(rnd.nextInt(0, items.size())));
         }
         return foundItem;
