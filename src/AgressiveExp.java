@@ -3,7 +3,7 @@ import java.util.ArrayList;
 public class AgressiveExp extends Expedition {
 
     private String population;
-
+    private String building;
     public String peopleRobbed = "";
     public int peopleKilled = 0;
 
@@ -37,16 +37,20 @@ public class AgressiveExp extends Expedition {
         }
     }
 
-    public String getPopulation() {
-        return population;
-    }
-
     public void setPopulation(String population) {
         this.population = population;
     }
 
-    public void schoolStory() {
-        System.out.println("During " + getPerson().name + "'s expedition he found a school ");
+
+    public void setBuilding(String building) {
+        this.building = building;
+    }
+
+    public void agrStory() {
+        System.out.println("During " + getPerson().name + "'s expedition he found a " + building + ". Believing there should be resources inside " + getPerson().name + " went inside. The place was not abandon though, a bunch of " + population + " children still lived there. " + getPerson().name + " decided " + peopleRobbed + " to rob the " + population + " of their resources.");
+        if (peopleKilled > 0) {
+            System.out.println("The " + population + " found you lurking and became agressive and attacked you. In the ruckus " + getPerson().name + " killed " + peopleKilled + " " + population + " and managed to flee.");
+        }
     }
 
 

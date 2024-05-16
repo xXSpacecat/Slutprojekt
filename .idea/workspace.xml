@@ -4,10 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="38cc0af5-f4cb-4688-83a4-3bca46665494" name="Changes" comment="flera expeditions">
+    <list default="true" id="38cc0af5-f4cb-4688-83a4-3bca46665494" name="Changes" comment="adding ways to het hurt sick and crazy">
+      <change afterPath="$PROJECT_DIR$/src/RHExp.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Bunker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Bunker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Character.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Character.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/AgressiveExp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AgressiveExp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Expedition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Expedition.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/SchoolExp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SchoolExp.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -94,7 +95,7 @@
       <workItem from="1715668791571" duration="2568000" />
       <workItem from="1715672311372" duration="5058000" />
       <workItem from="1715759723451" duration="46000" />
-      <workItem from="1715865166244" duration="2645000" />
+      <workItem from="1715865166244" duration="7107000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <option name="closed" value="true" />
@@ -232,7 +233,15 @@
       <option name="project" value="LOCAL" />
       <updated>1715677388996</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="adding ways to het hurt sick and crazy">
+      <option name="closed" value="true" />
+      <created>1715870129678</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1715870129678</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -266,7 +275,8 @@
     <MESSAGE value="it is playable" />
     <MESSAGE value="You can equip items to expeditions" />
     <MESSAGE value="flera expeditions" />
-    <option name="LAST_COMMIT_MESSAGE" value="flera expeditions" />
+    <MESSAGE value="adding ways to het hurt sick and crazy" />
+    <option name="LAST_COMMIT_MESSAGE" value="adding ways to het hurt sick and crazy" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

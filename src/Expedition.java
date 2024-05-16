@@ -9,28 +9,36 @@ public class Expedition {
     public int dangerRate = rnd.nextInt(7, 14);
     public int daysOnExp;
     public int mostItemsFound;
+    int expType = rnd.nextInt(2);
     public ArrayList<Item> items = new ArrayList<>();
 
     public Expedition() {
 
     }
 
-    public Expedition(Character character, ArrayList items) {
+    public Expedition(Character character, ArrayList<Item> items) {
         person = character;
-        this.items = items;
+        System.out.println("most items found :" + mostItemsFound);
         chooseExpType();
-        int expType = rnd.nextInt(4);
+        this.items = items;
+        System.out.println("most items found :" + mostItemsFound);
         die();
-
     }
 
-    public Expedition(Character character, ArrayList items, Equipment equipment) {
+    public Expedition(Character character, ArrayList<Item> items, Equipment equipment) {
         person = character;
         this.items = items;
         die();
     }
 
     private void chooseExpType() {
+        switch (expType) {
+            case 1:
+                SchoolExp school = new SchoolExp();
+
+            case 2:
+                RHExp retirementHome = new RHExp();
+        }
 
     }
 
