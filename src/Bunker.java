@@ -115,6 +115,17 @@ public class Bunker {
 
     public void dayInfo() {// writes out the stats of each character for the user to interpret
         ArrayList<Character> humansToRemove = new ArrayList<>();
+        showHungerAndThirst(humansToRemove);
+        showCrazyAndHurt(humansToRemove);
+        for (int i = 0; i < humansToRemove.size(); i++) {
+            humanInBunker.remove(humansToRemove.get(i));
+            humans.remove(humansToRemove.get(i));
+        }
+        scan.nextLine();
+
+    }
+
+    public void showHungerAndThirst(ArrayList<Character> humansToRemove) {
         for (int i = 0; i < humanInBunker.size(); i++) {
             if (humanInBunker.get(i).hunger >= 14) {
                 System.out.println(humanInBunker.get(i).name + " starved to death, rats eating away at their corpse.");
@@ -140,12 +151,44 @@ public class Bunker {
             }
 
         }
-        for (int i = 0; i < humansToRemove.size(); i++) {
-            humanInBunker.remove(humansToRemove.get(i));
-            humans.remove(humansToRemove.get(i));
-        }
-        scan.nextLine();
+    }
 
+    public void showCrazyAndHurt(ArrayList<Character> humansToRemove) {
+        for (int i = 0; i < humanInBunker.size(); i++) {
+            if (humanInBunker.get(i).crazy >= 14) {
+                System.out.println(humanInBunker.get(i).name + " got too crazy and in search for an adventure left the bunker, not to come back.");
+                humansToRemove.add(humanInBunker.get(i));
+            } else if (humanInBunker.get(i).crazy >= 12) {
+                System.out.println(humanInBunker.get(i).name + " is delusional, they begin to sing in their sleep.");
+
+            } else if (humanInBunker.get(i).crazy >= 7) {
+                System.out.println(humanInBunker.get(i).name + " is crazy");
+
+            }
+            if (humanInBunker.get(i).sick >= 10) {
+                System.out.println(humanInBunker.get(i).name + " coughed until they could coughed no more, their corpse rotting away in a corner.");
+                humansToRemove.add(humanInBunker.get(i));
+            } else if (humanInBunker.get(i).sick >= 8) {
+                System.out.println(humanInBunker.get(i).name + " is fatigued, they have a hard time rising to their feet.");
+
+            } else if (humanInBunker.get(i).sick >= 5) {
+                System.out.println(humanInBunker.get(i).name + " is sick");
+
+            }
+            if (humanInBunker.get(i).hurt >= 10) {
+                System.out.println(humanInBunker.get(i).name + " bled to death, a pool of blood lies fresh in the bunker.");
+                humansToRemove.add(humanInBunker.get(i));
+            } else if (humanInBunker.get(i).hurt >= 8) {
+                System.out.println(humanInBunker.get(i).name + " is looking rather pale, their wound has yet too heal.");
+
+            } else if (humanInBunker.get(i).hurt >= 5) {
+                System.out.println(humanInBunker.get(i).name + " is hurt");
+
+            } else {
+                System.out.println(humanInBunker.get(i).name + " is feeling fine.");
+            }
+
+        }
     }
 
 

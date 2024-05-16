@@ -4,14 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="38cc0af5-f4cb-4688-83a4-3bca46665494" name="Changes" comment="You can equip items to expeditions">
-      <change afterPath="$PROJECT_DIR$/src/AgressiveExp.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/SchoolExp.java" afterDir="false" />
+    <list default="true" id="38cc0af5-f4cb-4688-83a4-3bca46665494" name="Changes" comment="flera expeditions">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BunkerEvents.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Event.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ExpEvent.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Expedition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Expedition.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Bunker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Bunker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Character.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Character.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SchoolExp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SchoolExp.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,7 +92,9 @@
       <workItem from="1714979599764" duration="910000" />
       <workItem from="1715585608000" duration="857000" />
       <workItem from="1715668791571" duration="2568000" />
-      <workItem from="1715672311372" duration="4017000" />
+      <workItem from="1715672311372" duration="5058000" />
+      <workItem from="1715759723451" duration="46000" />
+      <workItem from="1715865166244" duration="2645000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <option name="closed" value="true" />
@@ -225,7 +224,15 @@
       <option name="project" value="LOCAL" />
       <updated>1715671364744</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="flera expeditions">
+      <option name="closed" value="true" />
+      <created>1715677388996</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1715677388996</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -258,7 +265,8 @@
     <MESSAGE value="fixar amn och expedition" />
     <MESSAGE value="it is playable" />
     <MESSAGE value="You can equip items to expeditions" />
-    <option name="LAST_COMMIT_MESSAGE" value="You can equip items to expeditions" />
+    <MESSAGE value="flera expeditions" />
+    <option name="LAST_COMMIT_MESSAGE" value="flera expeditions" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -1,4 +1,5 @@
 import java.util.Objects;
+import java.util.Random;
 
 public class Character {
 
@@ -11,6 +12,7 @@ public class Character {
     public int sick = 0;
     private boolean isFed = false;
     private boolean isWatered = false;
+    private Random rnd = new Random();
 
 
     public Character() {
@@ -100,11 +102,37 @@ public class Character {
         }
         if (hasMedKit) {
             this.hurt = 0;
+            this.sick = 0;
+            this.crazy = 0;
             bunkerInventory.useItem("medkit", bunker);
 
             System.out.println(name + " is healed.");
         } else {
             System.out.println("You don't own a medKit");
+        }
+    }
+
+    public void becomeCrazy() {
+        if (rnd.nextBoolean()) {
+            this.crazy += 1;
+        } else {
+            this.crazy += 2;
+        }
+    }
+
+    public void becomeHurt() {
+        if (rnd.nextBoolean()) {
+            this.crazy += 1;
+        } else {
+            this.crazy += 2;
+        }
+    }
+
+    public void becomeSick() {
+        if (rnd.nextBoolean()) {
+            this.crazy += 1;
+        } else {
+            this.crazy += 2;
         }
     }
 

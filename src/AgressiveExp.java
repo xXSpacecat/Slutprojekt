@@ -45,5 +45,9 @@ public class AgressiveExp extends Expedition {
         this.population = population;
     }
 
+    public void schoolStory() {
+        System.out.println("During " + getPerson().name + "'s expedition he found a school ");
+    }
+
 
 }
