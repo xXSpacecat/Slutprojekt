@@ -3,7 +3,7 @@ import java.util.Random;
 
 public class Expedition {
     public Random rnd = new Random();
-    private int daysLeft = rnd.nextInt(1, 3);
+    private int daysLeft = rnd.nextInt(4, 9);
     private Character person;
     private boolean isDead = false;
     public int dangerRate = rnd.nextInt(7, 14);
