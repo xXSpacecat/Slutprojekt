@@ -8,17 +8,18 @@ public class Expedition {
     private boolean isDead = false;
     public int dangerRate = rnd.nextInt(7, 14);
     public int daysOnExp;
-    public static int mostItemsFound = 2;
+    public static int mostItemsFound = 1;
     int expType = rnd.nextInt(2);
     public ArrayList<Item> items = new ArrayList<>();
+
+    private static String story;
 
     public Expedition() {
     }
 
     public Expedition(Character character, ArrayList<Item> items) {
         person = character;
-        createExpedition();
-        System.out.println("most items found: " + mostItemsFound);
+        createExpedition(person);
         this.items = items;
         die();
 
@@ -26,22 +27,23 @@ public class Expedition {
 
     public Expedition(Character character, ArrayList<Item> items, Equipment equipment) {
         person = character;
-        createExpedition();
-        System.out.println("most items found: " + mostItemsFound);
+        createExpedition(person);
         this.items = items;
         die();
     }
 
-    public static void createExpedition() {
+    public static void createExpedition(Character character) {
         int expType = new Random().nextInt(2);
         switch (expType) {
             case 0:
-                SchoolExp schExp = new SchoolExp();
+                SchoolExp schExp = new SchoolExp(character);
                 placeInMostItems(schExp.goOnSchExp());
+                story = schExp.agrStory(character);
                 break;
             case 1:
-                RHExp rHExp = new RHExp();
+                RHExp rHExp = new RHExp(character);
                 placeInMostItems(rHExp.goOnRHExp());
+                story = rHExp.agrStory(character);
                 break;
             default:
                 System.out.println("something went wrong.");
@@ -50,8 +52,7 @@ public class Expedition {
 
     public ArrayList<Item> foundItems() {
         ArrayList<Item> foundItem = new ArrayList<>();
-        for (int i = 0; i <= rnd.nextInt(mostItemsFound - 2, mostItemsFound); i++) {
-            System.out.println("they have randomly found " + i);
+        for (int i = 0; i <= rnd.nextInt(mostItemsFound - 1, mostItemsFound); i++) {
             foundItem.add(items.get(rnd.nextInt(0, items.size())));
         }
         return foundItem;
@@ -76,25 +77,20 @@ public class Expedition {
     public static int placeInMostItems(int numberOfItems) {
         mostItemsFound = 2;
         mostItemsFound += numberOfItems;
-        System.out.println(mostItemsFound);
         return mostItemsFound;
+    }
+
+    public static void tellStory(String story) {
+        System.out.println(story);
     }
 
     public Character getPerson() {
         return person;
     }
 
-    public void setCharacter(Character person) {
-        this.person = person;
+    public String getStory() {
+        return story;
     }
 
 
-    public int getMostItemsFound() {
-        return mostItemsFound;
-    }
-
-    public void setMostItemsFound(int mostItemsFound) {
-        this.mostItemsFound = mostItemsFound;
-    }
 }
-

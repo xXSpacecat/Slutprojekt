@@ -3,8 +3,11 @@ import java.util.ArrayList;
 public class RHExp extends AgressiveExp {
     private int aggressiveness = 5;
 
-    public RHExp() {
-        System.out.println("create RH expedition");
+    Character character;
+
+    public RHExp(Character character) {
+        this.character = character;
+
     }
 
     public void gotSick() {//You can get sick in this place
@@ -14,11 +17,10 @@ public class RHExp extends AgressiveExp {
     }
 
     public int goOnRHExp() {
-        System.out.println("is here for real");
-        dangerRate = rnd.nextInt(6, 8);
-        setPopulation("Retirees");
+        dangerRate = rnd.nextInt(4, 6);
+        setPopulation("Old people");
         setBuilding("Retirement Home");
-        gotSick();
+        //gotSick();
         return placeInMostItems(chooseToRob(aggressiveness));
     }
 

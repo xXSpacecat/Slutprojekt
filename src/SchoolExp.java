@@ -2,9 +2,10 @@ import java.util.ArrayList;
 
 public class SchoolExp extends AgressiveExp {
     private int aggressiveness = 3;
+    Character character;
 
-    public SchoolExp() {
-        System.out.println("create school expedition");
+    public SchoolExp(Character character) {
+        this.character = character;
     }
 
     public void drivenCrazy() {//School could drive one crazy
@@ -14,13 +15,11 @@ public class SchoolExp extends AgressiveExp {
     }
 
     public int goOnSchExp() {
-        System.out.println("is here for real 2");
-        super.dangerRate = rnd.nextInt(5, 7);
+        super.dangerRate = rnd.nextInt(3, 7);
         super.setPopulation("Children");
         super.setBuilding("School");
-        drivenCrazy();
+        //drivenCrazy();
         return placeInMostItems(chooseToRob(aggressiveness));
     }
-
 
 }

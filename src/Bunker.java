@@ -78,6 +78,8 @@ public class Bunker {
         // The character will be brought back if not dead and what it brings will be added to inventory
         humanInBunker.add(character);
         System.out.println(character.name + " is back from the expedition!");
+        System.out.println(expedition.getStory());
+
         ArrayList<Item> newItems = expedition.foundItems();
         for (int i = 0; i < newItems.size(); i++) {
             Item item = newItems.get(i);
@@ -353,25 +355,18 @@ public class Bunker {
         }
     }
 
-    private void goOnExp(Character character) {//Here you prepare for and initialize an expedition
+    private void goOnExp(Character character) {// the user has chosen to go on expedition, here you chose if you want an equipment
         if (expedition == null) {
-            System.out.println("Do you want to send them off with any equipment? (y/n)");
+            System.out.println("do you want to send them off with any equipment?(y/n)");
             while (true) {
                 String wantsEquip = scan.next();
-                scan.nextLine(); // Consume the newline character
-
                 if (wantsEquip.equalsIgnoreCase("y")) {
                     Equipment equip = whatToEquip();
-                    if (equip != null) {
-                        System.out.println(character.name + " went out to explore with a " + equip.name);
-                        expedition = new Expedition(character, inventory.getAllItems(), equip);
-                        humanInBunker.remove(character);
-                        inventory.items.remove(equip);
-                    } else {
-                        System.out.println("No equipment selected. Sending without equipment.");
-                        expedition = new Expedition(character, inventory.getAllItems());
-                        humanInBunker.remove(character);
-                    }
+                    expedition = new Expedition(character, inventory.getAllItems(), equip);
+                    System.out.println(character.name + " went out to explore with a " + equip.name);
+                    expedition = new Expedition(character, inventory.getAllItems(), equip);
+                    humanInBunker.remove(character);
+                    inventory.items.remove(equip);
                     break;
                 } else if (wantsEquip.equalsIgnoreCase("n")) {
                     expedition = new Expedition(character, inventory.getAllItems());
@@ -379,46 +374,42 @@ public class Bunker {
                     humanInBunker.remove(character);
                     break;
                 } else {
-                    System.out.println("Please write 'y' for yes or 'n' for no.");
+                    System.out.println("please write 'y' for yes or 'n' for no.");
                 }
             }
-        } else {
-            System.out.println("An expedition is already in progress.");
         }
     }
 
-    private Equipment whatToEquip() {//It finds the equipment you would like to add to the expedition
-        System.out.println("What would you like to equip?");
+
+    private Equipment whatToEquip() {// by finding the owned equipment in items the characters can bring back more loot from expeditions
+        System.out.println(" What would you like to equip?");
+        int num = 0;
         ArrayList<Equipment> equipment = new ArrayList<>();
         for (int i = 0; i < inventory.items.size(); i++) {
             if (inventory.items.get(i) instanceof Equipment) {
+                num++;
+                System.out.println("  " + (num) + ". " + inventory.items.get(i).name);
                 equipment.add((Equipment) inventory.items.get(i));
-                System.out.println((equipment.size()) + ". " + inventory.items.get(i).name);
             }
         }
-
-        if (equipment.isEmpty()) {
-            System.out.println("No equipment available.");
-            return null;
-        }
-
         int equipmentChosen;
         while (true) {
+            scan.nextLine();
             try {
                 equipmentChosen = scan.nextInt();
-                scan.nextLine();
-                if (equipmentChosen > 0 && equipmentChosen <= equipment.size()) {
-                    return equipment.get(equipmentChosen - 1);
+                if (equipmentChosen > equipment.size() || equipmentChosen <= 0) {
+                    System.out.println("please write in numbers within range of options");
                 } else {
-                    System.out.println("Please write a number within the range of options.");
+                    break;
                 }
             } catch (Exception e) {
-                System.out.println("Please write a valid number.");
+                System.out.println("Please write in numbers 1 - " + num);
                 scan.nextLine();
             }
         }
-    }
+        return equipment.get(equipmentChosen - 1);
 
+    }
 
     public Inventory getInventory() {//Supplying the inventory to other classes
         return inventory;
