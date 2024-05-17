@@ -58,10 +58,11 @@ public class AgressiveExp extends Expedition {
     }
 
 
-    public void agrStory() {
-        System.out.println("During " + getPerson().name + "'s expedition he found a " + building + ". Believing there should be resources inside " + getPerson().name + " went inside. The place was not abandon though, a bunch of " + population + " children still lived there. " + getPerson().name + " decided " + peopleRobbed + " to rob the " + population + " of their resources.");
+    public String agrStory() {
         if (peopleKilled > 0) {
-            System.out.println("The " + population + " found you lurking and became agressive and attacked you. In the ruckus " + getPerson().name + " killed " + peopleKilled + " " + population + " and managed to flee.");
+            return ("During " + getPerson().name + "'s expedition he found a " + building + ". Believing there should be resources inside " + getPerson().name + " went inside. The place was not abandon though, a bunch of " + population + " children still lived there. " + getPerson().name + " decided " + peopleRobbed + " to rob the " + population + " of their resources." + "The " + population + " found you lurking and became agressive and attacked you. In the ruckus " + getPerson().name + " killed " + peopleKilled + " " + population + " and managed to flee.");
+        } else {
+            return ("During " + getPerson().name + "'s expedition he found a " + building + ". Believing there should be resources inside " + getPerson().name + " went inside. The place was not abandon though, a bunch of " + population + " children still lived there. " + getPerson().name + " decided " + peopleRobbed + " to rob the " + population + " of their resources.");
         }
     }
 

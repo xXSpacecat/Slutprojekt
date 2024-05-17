@@ -71,11 +71,7 @@ public class Inventory {
         allItems.add(new Equipment("sledgeHammer"));
         allItems.add(new Equipment("medKit"));
         allItems.add(new Equipment("map"));
-        allItems.add(new Equipment("radio"));
-        allItems.add(new Equipment("bugspray"));
         allItems.add(new Equipment("flashlight"));
-        allItems.add(new Equipment("padlock"));
-        allItems.add(new Equipment("blowtorch"));
         allItems.add(new Consumable("food"));
         allItems.add(new Consumable("water"));
     }
