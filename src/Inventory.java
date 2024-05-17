@@ -81,7 +81,7 @@ public class Inventory {
     }
 
     public void createInventory() {//Items are added to the start inventory that the game begins with
-        int itemAdder = 6;
+        int itemAdder = 2;
 
         while (itemAdder >= 0) {
             int num = rnd.nextInt(allItems.size());

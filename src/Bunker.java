@@ -29,7 +29,7 @@ public class Bunker {
         characterCreate(input());
         inventory.counter();
 
-        while (!humans.isEmpty()) {//As long as someone is alive a new day will begin
+        while (!humanInBunker.isEmpty()) {//As long as someone is alive a new day will begin
             newDay(day);
         }
 
@@ -37,9 +37,7 @@ public class Bunker {
     }
 
     public void newDay(int currentDay) {//The happenings of each day will be coded here
-        System.out.println("DAY : " + day);
-        String EventFile = "src/Events.txt";
-        readFromFile(EventFile);
+        System.out.println("\n\n############\n\nDAY : " + day);
         dayInfo();
         currentSupplies();
         maintenance();
@@ -81,7 +79,9 @@ public class Bunker {
         System.out.println(character.name + " is back from the expedition!");
         ArrayList<Item> newItems = expedition.foundItems();
         for (int i = 0; i < newItems.size(); i++) {
-            if (!inventory.items.contains(newItems.get(i))) {
+            if (newItems.get(i) instanceof Equipment && !inventory.items.contains(newItems.get(i))) {
+                inventory.items.add(newItems.get(i));
+            } else {
                 inventory.items.add(newItems.get(i));
             }
         }
@@ -93,7 +93,7 @@ public class Bunker {
 
     private void currentSupplies() {// Tell the user what supplies it has in the bunker each day
 
-        System.out.println("The bunker currently has: ");
+        System.out.println("\n\n*******\nThe bunker currently has: ");
         for (int i = 0; i < inventory.items.size(); i++) {
             if (!Objects.equals(inventory.items.get(i).name, "water") && !Objects.equals(inventory.items.get(i).name, "food")) {
                 System.out.println("1 " + inventory.items.get(i).name);
@@ -184,8 +184,6 @@ public class Bunker {
             } else if (humanInBunker.get(i).hurt >= 5) {
                 System.out.println(humanInBunker.get(i).name + " is hurt");
 
-            } else {
-                System.out.println(humanInBunker.get(i).name + " is feeling fine.");
             }
 
         }
@@ -340,7 +338,7 @@ public class Bunker {
                             break;
                         }
 
-                    } else if ((c > humanInBunker.size() + 1)) {
+                    } else if ((c > humanInBunker.size() + 1) || c <= 0) {
                         System.out.println("please stay within range of options.");
                     }
                 }
@@ -358,9 +356,10 @@ public class Bunker {
                 String wantsEquip = scan.next();
                 if (wantsEquip.equalsIgnoreCase("y")) {
                     Equipment equip = whatToEquip();
-                    expedition = new Expedition(character, inventory.getAllItems(), equip);
                     System.out.println(character.name + " went out to explore with a " + equip.name);
+                    expedition = new Expedition(character, inventory.getAllItems(), equip);
                     humanInBunker.remove(character);
+                    inventory.items.remove(equip);
                     break;
                 } else if (wantsEquip.equalsIgnoreCase("n")) {
                     expedition = new Expedition(character, inventory.getAllItems());
@@ -389,19 +388,19 @@ public class Bunker {
         }
         int equipmentChosen;
         while (true) {
-            scan.nextLine();
             try {
                 equipmentChosen = scan.nextInt();
-                if (equipmentChosen > equipment.size()) {
+                if (equipmentChosen > equipment.size() || equipmentChosen <= 0) {
                     System.out.println("please write in numbers within range of options");
                 } else {
                     break;
                 }
             } catch (Exception e) {
                 System.out.println("Please write in numbers 1 - " + num);
+                scan.nextLine();
             }
         }
-        return equipment.get(equipmentChosen);
+        return equipment.get(equipmentChosen - 1);
 
     }
 
