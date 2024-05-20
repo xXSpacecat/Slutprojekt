@@ -4,11 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="38cc0af5-f4cb-4688-83a4-3bca46665494" name="Changes" comment="it will no longer get stuck in a loop randomly and i've removed equipment">
+    <list default="true" id="38cc0af5-f4cb-4688-83a4-3bca46665494" name="Changes" comment="made the expeditions their original leangth">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AgressiveExp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AgressiveExp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/AgressiveExp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AggressiveExp.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Bunker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Bunker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Character.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Character.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Consumable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Consumable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Equipment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Equipment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Events.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Expedition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Expedition.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Inventory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inventory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Item.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/RHExp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RHExp.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/SchoolExp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SchoolExp.java" afterDir="false" />
     </list>
@@ -98,7 +105,8 @@
       <workItem from="1715759723451" duration="46000" />
       <workItem from="1715865166244" duration="12783000" />
       <workItem from="1715938338605" duration="10099000" />
-      <workItem from="1715953256716" duration="12271000" />
+      <workItem from="1715953256716" duration="12615000" />
+      <workItem from="1716212063208" duration="5473000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <option name="closed" value="true" />
@@ -268,7 +276,23 @@
       <option name="project" value="LOCAL" />
       <updated>1715966059827</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="everything is working, problems lied in misplaced exceptions, now we have a story!">
+      <option name="closed" value="true" />
+      <created>1715973148414</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1715973148414</updated>
+    </task>
+    <task id="LOCAL-00023" summary="made the expeditions their original leangth">
+      <option name="closed" value="true" />
+      <created>1715973250390</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1715973250390</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -306,7 +330,9 @@
     <MESSAGE value="trying out to see if extended classes work" />
     <MESSAGE value="getting the items to be added correctly after expedition" />
     <MESSAGE value="it will no longer get stuck in a loop randomly and i've removed equipment" />
-    <option name="LAST_COMMIT_MESSAGE" value="it will no longer get stuck in a loop randomly and i've removed equipment" />
+    <MESSAGE value="everything is working, problems lied in misplaced exceptions, now we have a story!" />
+    <MESSAGE value="made the expeditions their original leangth" />
+    <option name="LAST_COMMIT_MESSAGE" value="made the expeditions their original leangth" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -319,25 +345,6 @@
           <properties class="java.lang.IllegalArgumentException" package="java.lang" />
           <option name="timeStamp" value="4" />
         </breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Bunker.java</url>
-          <line>389</line>
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/AgressiveExp.java</url>
-          <line>55</line>
-          <option name="timeStamp" value="16" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/AgressiveExp.java</url>
-          <line>53</line>
-          <properties class="AgressiveExp" method="agrStory">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="15" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <pin-to-top-manager>

@@ -1,6 +1,4 @@
-import java.util.ArrayList;
-
-public class RHExp extends AgressiveExp {
+public class RHExp extends AggressiveExp {//type of aggressive expedition
     private int aggressiveness = 5;
 
     Character character;
@@ -16,10 +14,10 @@ public class RHExp extends AgressiveExp {
         }
     }
 
-    public int goOnRHExp() {
-        dangerRate = rnd.nextInt(4, 6);
-        setPopulation("Old people");
-        setBuilding("Retirement Home");
+    public int goOnRHExp() {//will collect amount of most items found to be added when expedition comes to an end of the expedition of said type
+        super.dangerRate = rnd.nextInt(4, 6);
+        super.setPopulation("Old people");
+        super.setBuilding("Retirement Home");
         //gotSick();
         return placeInMostItems(chooseToRob(aggressiveness));
     }

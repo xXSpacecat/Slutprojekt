@@ -1,10 +1,8 @@
-import java.util.ArrayList;
-
-public class SchoolExp extends AgressiveExp {
+public class SchoolExp extends AggressiveExp {//Type of aggressive expedition
     private int aggressiveness = 3;
     Character character;
 
-    public SchoolExp(Character character) {
+    public SchoolExp(Character character) {//constructor
         this.character = character;
     }
 
@@ -14,7 +12,7 @@ public class SchoolExp extends AgressiveExp {
         }
     }
 
-    public int goOnSchExp() {
+    public int goOnSchExp() {//this method begins a row of methods to find most items to be found in the expedtition
         super.dangerRate = rnd.nextInt(3, 7);
         super.setPopulation("Children");
         super.setBuilding("School");

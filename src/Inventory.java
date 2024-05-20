@@ -2,18 +2,16 @@ import java.util.ArrayList;
 import java.util.Objects;
 import java.util.Random;
 
-public class Inventory {
+public class Inventory {//All items and how they are kept and placed is stored here
     public ArrayList<Item> items = new ArrayList<Item>();
 
     private ArrayList<Item> allItems = new ArrayList<Item>();
     public Random rnd = new Random();
-
-
     private int waterCounter;
     private int foodCounter;
 
 
-    public Inventory() {
+    public Inventory() {//constructor
         createItems();
         createInventory();
     }
@@ -51,18 +49,13 @@ public class Inventory {
     }
 
 
-    public void useItem(String nameOfItem, Bunker bunker) {//uses upp item
+    public void useItem(String nameOfItem) {//uses up item
         for (int i = 0; i < this.items.size(); i++) {
             if (Objects.equals(nameOfItem, this.items.get(i).name)) {
                 this.items.get(i).use();
                 break;
             }
         }
-    }
-
-
-    public void addItem(String nameOfItem) {
-
     }
 
     private void createItems() {//Here all the Items will be created and put in a general arraylist that will then later be used in events and other parts of the game where all the items should be availible.
@@ -106,15 +99,15 @@ public class Inventory {
         return true;
     }
 
-    public int getWaterCounter() {
+    public int getWaterCounter() {//getter
         return waterCounter;
     }
 
-    public int getFoodCounter() {
+    public int getFoodCounter() {//getter
         return foodCounter;
     }
 
-    public ArrayList<Item> getAllItems() {
+    public ArrayList<Item> getAllItems() {//getter
         return allItems;
     }
 

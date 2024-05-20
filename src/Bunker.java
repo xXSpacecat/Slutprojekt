@@ -1,11 +1,8 @@
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Objects;
-import java.util.Scanner;
-import java.util.Random;
+import java.util.*;
 
-public class Bunker {
+public class Bunker {//The game process happens in this bunker class
     public Scanner scan = new Scanner(System.in);
     public ArrayList<Character> humanInBunker = new ArrayList<Character>();
     public ArrayList<Character> humans = new ArrayList<Character>();
@@ -18,7 +15,7 @@ public class Bunker {
     private Expedition expedition;
 
 
-    public Bunker() {//The main game will be coded here
+    public Bunker() {//The main game will be coded here, constructor
         ArrayList<String> names = readFromFile(fileName);
         System.out.println("Welcome to my Bunker game!");
         System.out.println("Here you will survive however long you can with the number of characters of your choice.");
@@ -74,8 +71,7 @@ public class Bunker {
         }
     }
 
-    private void bringBackCharacter(Character character) {
-        // The character will be brought back if not dead and what it brings will be added to inventory
+    private void bringBackCharacter(Character character) {// The character will be brought back if not dead and what it brings will be added to inventory
         humanInBunker.add(character);
         System.out.println(character.name + " is back from the expedition!");
         System.out.println(expedition.getStory());
@@ -99,7 +95,7 @@ public class Bunker {
 
     private void currentSupplies() {// Tell the user what supplies it has in the bunker each day
 
-        System.out.println("\n\n*******\nThe bunker currently has: ");
+        System.out.println("\n*******\nThe bunker currently has: ");
         for (int i = 0; i < inventory.items.size(); i++) {
             if (!Objects.equals(inventory.items.get(i).name, "water") && !Objects.equals(inventory.items.get(i).name, "food")) {
                 System.out.println("1 " + inventory.items.get(i).name);
@@ -123,7 +119,7 @@ public class Bunker {
         ArrayList<Character> humansToRemove = new ArrayList<>();
         showHungerAndThirst(humansToRemove);
         showCrazyAndHurt(humansToRemove);
-        for (int i = 0; i < humansToRemove.size(); i++) {
+        for (int i = 0; i < humansToRemove.size(); i++) {//characters killed from hunger thirst or anything else of the above will be removed from the game
             humanInBunker.remove(humansToRemove.get(i));
             humans.remove(humansToRemove.get(i));
         }
@@ -248,7 +244,7 @@ public class Bunker {
         }
     }
 
-    private int input() { //Säger till så att man inte lägger in fel antal människor i sitt game
+    private int input() { //Making so that the right amount of people are added to the game
         int quantity;
         do {
             try {
@@ -381,7 +377,7 @@ public class Bunker {
     }
 
 
-    private Equipment whatToEquip() {// by finding the owned equipment in items the characters can bring back more loot from expeditions
+    private Equipment whatToEquip() {//Any equipment found in the inventory can be used in an expedition, does nothing yet but can be implemented
         System.out.println(" What would you like to equip?");
         int num = 0;
         ArrayList<Equipment> equipment = new ArrayList<>();

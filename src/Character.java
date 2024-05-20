@@ -1,10 +1,9 @@
 import java.util.Objects;
 import java.util.Random;
 
-public class Character {
+public class Character {//The character the game is created around
 
     public String name;
-    private Item equipped;
     public int hunger = 0;
     public int thirst = 0;
     public int crazy = 0;
@@ -15,15 +14,15 @@ public class Character {
     private Random rnd = new Random();
 
 
-    public Character() {
+    public Character() {//constructor
     }
 
-    public Character(String name) {
+    public Character(String name) {//constructor
         this.name = name;
     }
 
 
-    public void sleep() {
+    public void sleep() {//Characters stats are changed for the next day
         this.hunger++;
         this.thirst++;
         this.isFed = false;
@@ -44,7 +43,6 @@ public class Character {
         int foodCount = bunkerInventory.getFoodCounter();
         if (!isFed) {
             if (foodCount > 0) {
-
                 if (this.hunger <= 7) {
                     this.hunger = 0;
                 }
@@ -53,7 +51,6 @@ public class Character {
                 }
 
                 bunkerInventory.consumeFood();
-
                 System.out.println(name + " eats from the bunker.");
                 isFed = true;
             } else {
@@ -64,7 +61,7 @@ public class Character {
         }
     }
 
-    public void drink(Bunker bunker) {// Decrease character's thisrt by first checking the amount of food in the bunker
+    public void drink(Bunker bunker) {// Decrease character's thirst by first checking the amount of food in the bunker
         Inventory bunkerInventory = bunker.getInventory();
         int foodCount = bunkerInventory.getWaterCounter();
 
@@ -89,7 +86,7 @@ public class Character {
         }
     }
 
-    public void heal(Bunker bunker) {// Decrease character's hunger by first checking the amount of food in the bunker
+    public void heal(Bunker bunker) {// resets characters other stats if there is a medkit in the bunker inventory
         Inventory bunkerInventory = bunker.getInventory();
 
         boolean hasMedKit = false;
@@ -104,7 +101,7 @@ public class Character {
             this.hurt = 0;
             this.sick = 0;
             this.crazy = 0;
-            bunkerInventory.useItem("medkit", bunker);
+            bunkerInventory.useItem("medkit");
 
             System.out.println(name + " is healed.");
         } else {
@@ -112,7 +109,7 @@ public class Character {
         }
     }
 
-    public void becomeCrazy() {
+    public void becomeCrazy() {//If a character does something that can make them crazy this method should be called
         if (rnd.nextBoolean()) {
             this.crazy += 1;
         } else {
@@ -120,7 +117,7 @@ public class Character {
         }
     }
 
-    public void becomeHurt() {
+    public void becomeHurt() {//If a character does something that can make them hurt this method should be called
         if (rnd.nextBoolean()) {
             this.crazy += 1;
         } else {
@@ -128,7 +125,7 @@ public class Character {
         }
     }
 
-    public void becomeSick() {
+    public void becomeSick() {//If a character does something that can make them sick this method should be called
         if (rnd.nextBoolean()) {
             this.crazy += 1;
         } else {
