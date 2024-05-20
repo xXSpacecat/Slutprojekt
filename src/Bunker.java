@@ -26,7 +26,7 @@ public class Bunker {//The game process happens in this bunker class
         characterCreate(input());
         inventory.counter();
 
-        while (!humanInBunker.isEmpty()) {//As long as someone is alive a new day will begin
+        while (!humans.isEmpty()) {//As long as someone is alive a new day will begin
             newDay(day);
         }
 
