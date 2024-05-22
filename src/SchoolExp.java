@@ -1,6 +1,6 @@
 public class SchoolExp extends AggressiveExp {//Type of aggressive expedition
     private int aggressiveness = 3;
-    Character character;
+    public Character character;
 
     public SchoolExp(Character character) {//constructor
         this.character = character;

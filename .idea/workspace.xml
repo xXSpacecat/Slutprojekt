@@ -7,7 +7,7 @@
     <list default="true" id="38cc0af5-f4cb-4688-83a4-3bca46665494" name="Changes" comment="allt är kommenterat!">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/AggressiveExp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AggressiveExp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Bunker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Bunker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SchoolExp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SchoolExp.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,7 +96,11 @@
       <workItem from="1715865166244" duration="12783000" />
       <workItem from="1715938338605" duration="10099000" />
       <workItem from="1715953256716" duration="12615000" />
-      <workItem from="1716212063208" duration="6916000" />
+      <workItem from="1716212063208" duration="6972000" />
+      <workItem from="1716219155103" duration="1706000" />
+      <workItem from="1716299014066" duration="439000" />
+      <workItem from="1716299467909" duration="3435000" />
+      <workItem from="1716364583629" duration="1378000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <option name="closed" value="true" />
@@ -290,7 +294,15 @@
       <option name="project" value="LOCAL" />
       <updated>1716218021667</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="allt är kommenterat!">
+      <option name="closed" value="true" />
+      <created>1716219046810</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1716219046810</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
